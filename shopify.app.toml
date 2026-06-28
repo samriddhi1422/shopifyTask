@@ -2,7 +2,7 @@
 
 client_id = "559cef3f369ef1572090948715fc5a64"
 name = "announcement-banner-app"
-application_url = "https://example.com"
+application_url = "https://shopifytask.onrender.com"
 embedded = true
 
 [build]
@@ -25,8 +25,10 @@ api_version = "2026-07"
 scopes = "write_products,write_metaobjects,write_metaobject_definitions"
 
 [auth]
-redirect_urls = [ "https://example.com/api/auth" ]
-
+redirect_urls = [
+  "https://shopifytask.onrender.com/auth/callback",
+  "https://shopifytask.onrender.com/auth/shopify/callback"
+]
 [product.metafields.app.demo_info]
 type = "single_line_text_field"
 name = "Demo Source Info"
