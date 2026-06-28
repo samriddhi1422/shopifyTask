@@ -106,10 +106,6 @@ export default function Index() {
       onSubmit={handleSubmit}
       style={{ display: "flex", flexDirection: "column", gap: "16px" }}
     >
-
-      {/* Recent Announcements List */}
-      
-
       {/* Text Input */}
       <input
         name="announcement"
@@ -221,6 +217,10 @@ export default function Index() {
       
 
     </Form>
+          
+  </s-section>
+  {/* Recent Announcements List */}
+
      <div
         style={{
           maxWidth: "480px",
@@ -306,7 +306,6 @@ export default function Index() {
           ))
         )}
       </div>
-  </s-section>
 </s-page>
 );
     
