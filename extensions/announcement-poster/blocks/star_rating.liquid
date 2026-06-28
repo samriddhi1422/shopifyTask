@@ -1,0 +1,98 @@
+{% assign announcement = shop.metafields.my_app.announcement.value %}
+{% if announcement != blank %}
+<div class="ann-banner" id="ann-banner">
+  <div class="ann-inner">
+    <div class="ann-icon-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783A.75.75 0 0 0 11.23 17h-1.5a.75.75 0 0 1-.75-.75v-5.25m0 0v-.75m0 .75a4.5 4.5 0 1 0 0-9m0 9v.75m0-.75H12m-6.75 0v-5.25m0 5.25H3" />
+      </svg>
+    </div>
+    <span class="ann-text">{{ announcement }}</span>
+  </div>
+  <button class="ann-dismiss" onclick="document.getElementById('ann-banner').remove()" aria-label="Dismiss">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+  </button>
+</div>
+
+<style>
+  .ann-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 48px 11px 20px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+    border-left: 3px solid #121212;
+    z-index: 99999;
+    box-sizing: border-box;
+    animation: annFadeIn 0.35s ease-out forwards;
+  }
+  .ann-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .ann-icon-wrap {
+    width: 28px;
+    height: 28px;
+    background: #121212;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #ffffff;
+  }
+  .ann-icon-wrap svg {
+    width: 15px;
+    height: 15px;
+  }
+  .ann-text {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #121212;
+    line-height: 1.3;
+  }
+  .ann-dismiss {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #999;
+    border-radius: 4px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .ann-dismiss:hover { background: #f0f0f0; color: #121212; }
+  .ann-dismiss svg { width: 13px; height: 13px; }
+  @keyframes annFadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Announcement Banner",
+  "target": "body",
+  "settings": []
+}
+{% endschema %}
